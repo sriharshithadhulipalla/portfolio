@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Harshitha Portfolio</title>
+
+<style>
+
+/* ------------------------------
+   RESET
+------------------------------ */
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  scroll-behavior:smooth;
+}
+
+/* ------------------------------
+   DARK MODE DEFAULT VARIABLES
+------------------------------ */
+:root{
+  --bg:#0b1120;
+  --text:#e5e7eb;
+  --card:#0f172a;
+  --primary:#38bdf8;
+}
+
+/* ------------------------------
+   LIGHT MODE VARIABLES
+------------------------------ */
+.light-mode{
+  --bg:#eef2f7;
+  --text:#2d3436;
+  --card:#ffffff;
+  --primary:#1f3c88;
+}
+
+/* ------------------------------
+   BODY
+------------------------------ */
+body{
+  font-family: Arial, sans-serif;
+  background:var(--bg);
+  color:var(--text);
+  text-align:center;
+}
+
+/* ------------------------------
+   NAVBAR
+------------------------------ */
+nav{
+  background:var(--card);
+  padding:15px;
+  position:sticky;
+  top:0;
+  box-shadow:0 2px 8px rgba(0,0,0,0.4);
+
+  display:flex;
+  justify-content:flex-end;   /* RIGHT SIDE */
+}
+
+nav a{
+  text-decoration:none;
+  margin:0 15px;
+  font-weight:bold;
+  color:var(--primary);
+}
+
+/* ------------------------------
+   TOGGLE BUTTON
+------------------------------ */
+.toggle-btn{
+  position:fixed;
+  top:15px;
+  right:15px;
+  padding:8px 14px;
+  border:none;
+  border-radius:20px;
+  background:var(--primary);
+  color:white;
+  cursor:pointer;
+  font-weight:bold;
+}
+
+/* ------------------------------
+   SECTIONS
+------------------------------ */
+section{
+  padding:70px 20px;
+}
+
+/* ------------------------------
+   HEADINGS
+------------------------------ */
+h1{
+  font-size:40px;
+  color:white;
+}
+
+h2{
+  font-size:28px;
+  margin-bottom:20px;
+  color:var(--primary);
+}
+
+p{
+  max-width:600px;
+  margin:10px auto;
+  line-height:1.6;
+  font-size:18px;
+}
+
+/* ------------------------------
+   PROFILE SECTION
+------------------------------ */
+.profile{
+  background:linear-gradient(to right,#0ea5e9,#2563eb);
+  color:white;
+  border-radius:0 0 40px 40px;
+}
+
+/* ------------------------------
+   PROFILE IMAGE
+------------------------------ */
+.profile-image{
+  width:140px;
+  height:140px;
+  background:white;
+  border-radius:50%;
+  margin:20px auto;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:60px;
+}
+
+/* ------------------------------
+   BOX AREA
+------------------------------ */
+.box-area{
+  display:flex;
+  justify-content:center;
+  flex-wrap:wrap;
+  gap:25px;
+  margin-top:30px;
+}
+
+/* ------------------------------
+   BOX
+------------------------------ */
+.box{
+  background:var(--card);
+  width:220px;
+  padding:25px;
+  border-radius:12px;
+  box-shadow:0 6px 15px rgba(0,0,0,0.6);
+  transition:0.3s;
+  color:white;
+  font-weight:600;
+}
+
+.box:hover{
+  transform:translateY(-6px);
+}
+
+/* ------------------------------
+   PROJECT TEXT SIZE
+------------------------------ */
+.box h3{
+  font-size:18px;
+  margin-bottom:8px;
+}
+
+.box p{
+  font-size:14px;
+  line-height:1.4;
+  color:#cbd5f5;
+}
+
+/* ------------------------------
+   CONTACT CARD
+------------------------------ */
+.contact-card{
+  background:var(--card);
+  max-width:500px;
+  margin:auto;
+  padding:30px;
+  border-radius:15px;
+  box-shadow:0 6px 18px rgba(0,0,0,0.6);
+}
+
+/* ------------------------------
+   MOBILE VIEW
+------------------------------ */
+@media(max-width:600px){
+  h1{ font-size:32px; }
+  h2{ font-size:24px; }
+  .box{ width:90%; }
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- THEME BUTTON -->
+<button class="toggle-btn" onclick="toggleMode()">☀ Light</button>
+
+<!-- ================= NAVBAR ================= -->
+<nav>
+  <a href="#home">Home</a>
+  <a href="#about">About</a>
+  <a href="#skills">Skills</a>
+  <a href="#certifications">Certifications</a>
+  <a href="#projects">Projects</a>
+  <a href="#contact">Contact</a>
+</nav>
+
+<!-- ================= PROFILE ================= -->
+<section id="home" class="profile">
+  <div class="profile-image">👩‍💻</div>
+  <h1>Hello, I'm Harshitha</h1>
+  <p><b>Full Stack Developer</b></p>
+  <p>Welcome to my portfolio</p>
+</section>
+
+<!-- ================= ABOUT ================= -->
+<section id="about">
+  <h2>About Me</h2>
+  <p>
+I am Sriharshitha Dhulipalla, a passionate Full Stack Developer from Andhra Pradesh.
+I have completed certifications from L4G Solutions and Nypuniyam and have skills in Python,
+HTML, CSS, C Language, and UI/UX design. I enjoy building simple, clean, and
+user-friendly websites and I am continuously learning new technologies to improve
+myself as a developer.
+</p>
+</section>
+
+<!-- ================= SKILLS ================= -->
+<section id="skills">
+  <h2>Skills</h2>
+  <div class="box-area">
+    <div class="box">🐍 Python</div>
+    <div class="box">🌐 HTML</div>
+    <div class="box">🎨 CSS</div>
+    <div class="box">💻 C Language</div>
+    <div class="box">🖌️ UI / UX</div>
+  </div>
+</section>
+
+<!-- ================= CERTIFICATIONS ================= -->
+<section id="certifications">
+  <h2>Certifications</h2>
+  <div class="box-area">
+    <div class="box">L4G Solutions</div>
+    <div class="box">Nypuniyam</div>
+    <div class="box">Joy of Computing Python</div>
+  </div>
+</section>
+
+<!-- ================= PROJECTS ================= -->
+<section id="projects">
+  <h2>Projects</h2>
+  <div class="box-area">
+
+    <div class="box">
+      <h3>To-Do List</h3>
+      <p>
+        A simple web application to add, delete, and manage daily tasks.
+        Helps users stay organized and improve productivity.
+      </p>
+    </div>
+
+    <div class="box">
+      <h3>Calculator</h3>
+      <p>
+        A basic calculator that performs arithmetic operations like addition,
+        subtraction, multiplication, and division.
+      </p>
+    </div>
+    <div class="box">
+  <h3>Portfolio Website</h3>
+  <p>
+    A personal portfolio website to showcase my skills, projects,
+    certifications, and contact details using HTML, CSS, and JavaScript.
+  </p>
+</div>
+  </div>
+</section>
+
+<!-- ================= CONTACT ================= -->
+<section id="contact">
+  <h2>Contact Me</h2>
+
+  <div class="contact-card">
+    <p>📧 Email: sriharshithadhulipalla@gmail.com</p>
+    <p>📞 Phone: 8008052097</p>
+
+    <p>GitHub:
+      <a href="https://github.com/sriharshithadhulipalla" target="_blank">
+        github.com/sriharshithadhulipalla
+      </a>
+    </p>
+
+    <p>LinkedIn:
+      <a href="https://linkedin.com/in/sriharshitha-dhulipalla-90aa53348" target="_blank">
+        linkedin.com/in/sriharshitha-dhulipalla-90aa53348
+      </a>
+    </p>
+  </div>
+</section>
+
+<!-- ================= JAVASCRIPT ================= -->
+<script>
+function toggleMode(){
+  document.body.classList.toggle("light-mode");
+
+  let btn = document.querySelector(".toggle-btn");
+  if(document.body.classList.contains("light-mode")){
+    btn.innerHTML = "🌙 Dark";
+  }else{
+    btn.innerHTML = "☀ Light";
+  }
+}
+</script>
+
+</body>
+</html>
