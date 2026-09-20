@@ -1,332 +1,919 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sriharshitha Dhulipalla | Portfolio</title>
 
-<title>Harshitha Portfolio</title>
+  <style>
+    :root {
+      --bg: #0b1120;
+      --card: #111c30;
+      --text: #e5e7eb;
+      --muted: #a5b4c8;
+      --primary: #38bdf8;
+      --border: #24334b;
+    }
 
-<style>
+    .light-mode {
+      --bg: #f4f7fb;
+      --card: #ffffff;
+      --text: #172033;
+      --muted: #596579;
+      --primary: #1764b0;
+      --border: #dce4ef;
+    }
 
-/* ------------------------------
-   RESET
------------------------------- */
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-  scroll-behavior:smooth;
-}
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
 
-/* ------------------------------
-   DARK MODE DEFAULT VARIABLES
------------------------------- */
-:root{
-  --bg:#0b1120;
-  --text:#e5e7eb;
-  --card:#0f172a;
-  --primary:#38bdf8;
-}
+    body {
+      font-family: Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+      transition: 0.3s;
+    }
 
-/* ------------------------------
-   LIGHT MODE VARIABLES
------------------------------- */
-.light-mode{
-  --bg:#eef2f7;
-  --text:#2d3436;
-  --card:#ffffff;
-  --primary:#1f3c88;
-}
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
 
-/* ------------------------------
-   BODY
------------------------------- */
-body{
-  font-family: Arial, sans-serif;
-  background:var(--bg);
-  color:var(--text);
-  text-align:center;
-}
+    .container {
+      width: min(1100px, 90%);
+      margin: auto;
+    }
 
-/* ------------------------------
-   NAVBAR
------------------------------- */
-nav{
-  background:var(--card);
-  padding:15px;
-  position:sticky;
-  top:0;
-  box-shadow:0 2px 8px rgba(0,0,0,0.4);
+    /* NAVBAR */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: var(--card);
+      border-bottom: 1px solid var(--border);
+    }
 
-  display:flex;
-  justify-content:flex-end;   /* RIGHT SIDE */
-}
+    .nav-content {
+      min-height: 70px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
 
-nav a{
-  text-decoration:none;
-  margin:0 15px;
-  font-weight:bold;
-  color:var(--primary);
-}
+    .logo {
+      font-size: 22px;
+      font-weight: bold;
+      color: var(--primary);
+    }
 
-/* ------------------------------
-   TOGGLE BUTTON
------------------------------- */
-.toggle-btn{
-  position:fixed;
-  top:15px;
-  right:15px;
-  padding:8px 14px;
-  border:none;
-  border-radius:20px;
-  background:var(--primary);
-  color:white;
-  cursor:pointer;
-  font-weight:bold;
-}
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 22px;
+    }
 
-/* ------------------------------
-   SECTIONS
------------------------------- */
-section{
-  padding:70px 20px;
-}
+    .nav-links a {
+      font-size: 14px;
+      font-weight: 600;
+    }
 
-/* ------------------------------
-   HEADINGS
------------------------------- */
-h1{
-  font-size:40px;
-  color:white;
-}
+    .nav-links a:hover {
+      color: var(--primary);
+    }
 
-h2{
-  font-size:28px;
-  margin-bottom:20px;
-  color:var(--primary);
-}
+    .theme-btn {
+      padding: 8px 13px;
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      background: var(--bg);
+      color: var(--text);
+      cursor: pointer;
+    }
 
-p{
-  max-width:600px;
-  margin:10px auto;
-  line-height:1.6;
-  font-size:18px;
-}
+    /* HERO */
+    .hero {
+      padding: 100px 0;
+      background:
+        radial-gradient(
+          circle at 85% 20%,
+          rgba(56, 189, 248, 0.13),
+          transparent 35%
+        );
+    }
 
-/* ------------------------------
-   PROFILE SECTION
------------------------------- */
-.profile{
-  background:linear-gradient(to right,#0ea5e9,#2563eb);
-  color:white;
-  border-radius:0 0 40px 40px;
-}
+    .hero-content {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr;
+      align-items: center;
+      gap: 50px;
+    }
 
-/* ------------------------------
-   PROFILE IMAGE
------------------------------- */
-.profile-image{
-  width:140px;
-  height:140px;
-  background:white;
-  border-radius:50%;
-  margin:20px auto;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-size:60px;
-}
+    .tag {
+      display: inline-block;
+      color: var(--primary);
+      border: 1px solid var(--border);
+      border-radius: 30px;
+      padding: 5px 15px;
+      font-size: 13px;
+      margin-bottom: 20px;
+    }
 
-/* ------------------------------
-   BOX AREA
------------------------------- */
-.box-area{
-  display:flex;
-  justify-content:center;
-  flex-wrap:wrap;
-  gap:25px;
-  margin-top:30px;
-}
+    .hero h1 {
+      font-size: clamp(36px, 5vw, 58px);
+      line-height: 1.2;
+      margin-bottom: 18px;
+    }
 
-/* ------------------------------
-   BOX
------------------------------- */
-.box{
-  background:var(--card);
-  width:220px;
-  padding:25px;
-  border-radius:12px;
-  box-shadow:0 6px 15px rgba(0,0,0,0.6);
-  transition:0.3s;
-  color:white;
-  font-weight:600;
-}
+    .hero h1 span {
+      color: var(--primary);
+    }
 
-.box:hover{
-  transform:translateY(-6px);
-}
+    .hero p {
+      color: var(--muted);
+      max-width: 570px;
+      margin-bottom: 25px;
+    }
 
-/* ------------------------------
-   PROJECT TEXT SIZE
------------------------------- */
-.box h3{
-  font-size:18px;
-  margin-bottom:8px;
-}
+    .buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
 
-.box p{
-  font-size:14px;
-  line-height:1.4;
-  color:#cbd5f5;
-}
+    .btn {
+      display: inline-block;
+      padding: 11px 20px;
+      border-radius: 8px;
+      font-weight: bold;
+      border: 1px solid var(--primary);
+      transition: 0.3s;
+    }
 
-/* ------------------------------
-   CONTACT CARD
------------------------------- */
-.contact-card{
-  background:var(--card);
-  max-width:500px;
-  margin:auto;
-  padding:30px;
-  border-radius:15px;
-  box-shadow:0 6px 18px rgba(0,0,0,0.6);
-}
+    .btn-primary {
+      background: var(--primary);
+      color: #07111e;
+    }
 
-/* ------------------------------
-   MOBILE VIEW
------------------------------- */
-@media(max-width:600px){
-  h1{ font-size:32px; }
-  h2{ font-size:24px; }
-  .box{ width:90%; }
-}
+    .btn-outline {
+      color: var(--primary);
+    }
 
-</style>
+    .btn:hover {
+      transform: translateY(-3px);
+    }
+
+    .hero-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 22px;
+      padding: 35px;
+      text-align: center;
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+    }
+
+    .avatar {
+      width: 130px;
+      height: 130px;
+      margin: 0 auto 20px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #38bdf8, #6366f1);
+      display: grid;
+      place-items: center;
+      font-size: 58px;
+    }
+
+    .hero-card h3 {
+      font-size: 23px;
+    }
+
+    .hero-card p {
+      margin: 5px auto 0;
+      font-size: 14px;
+    }
+
+    .hero-label {
+      color: var(--primary);
+      font-size: 13px;
+      margin-top: 20px;
+    }
+
+    /* GENERAL SECTIONS */
+    section {
+      padding: 75px 0;
+      scroll-margin-top: 70px;
+    }
+
+    .section-heading {
+      margin-bottom: 35px;
+    }
+
+    .section-heading span {
+      color: var(--primary);
+      font-size: 13px;
+      font-weight: bold;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    .section-heading h2 {
+      font-size: 34px;
+      margin-top: 5px;
+    }
+
+    .section-heading p {
+      color: var(--muted);
+      max-width: 650px;
+      margin-top: 8px;
+    }
+
+    /* ABOUT */
+    .about-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 30px;
+    }
+
+    .about-card p {
+      color: var(--muted);
+      margin-bottom: 15px;
+    }
+
+    .about-card p:last-child {
+      margin-bottom: 0;
+    }
+
+    /* SKILLS */
+    .skill-group {
+      margin-bottom: 28px;
+    }
+
+    .skill-group h3 {
+      margin-bottom: 15px;
+      font-size: 18px;
+    }
+
+    .skills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .skill {
+      background: var(--card);
+      border: 1px solid var(--border);
+      padding: 10px 17px;
+      border-radius: 8px;
+      font-size: 14px;
+      font-weight: 600;
+      transition: 0.3s;
+    }
+
+    .skill:hover {
+      border-color: var(--primary);
+      transform: translateY(-3px);
+    }
+
+    /* PROJECTS */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 22px;
+    }
+
+    .project-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      padding: 27px;
+      border-radius: 16px;
+      display: flex;
+      flex-direction: column;
+      transition: 0.3s;
+    }
+
+    .project-card:hover {
+      transform: translateY(-5px);
+      border-color: var(--primary);
+    }
+
+    .project-number {
+      color: var(--primary);
+      font-size: 13px;
+      font-weight: bold;
+      letter-spacing: 1px;
+    }
+
+    .project-card h3 {
+      font-size: 23px;
+      margin: 12px 0 8px;
+    }
+
+    .project-card p {
+      color: var(--muted);
+      font-size: 15px;
+      margin-bottom: 18px;
+    }
+
+    .project-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: auto;
+      margin-bottom: 20px;
+    }
+
+    .project-tags span {
+      color: var(--primary);
+      background: rgba(56, 189, 248, 0.08);
+      padding: 4px 9px;
+      border-radius: 5px;
+      font-size: 12px;
+    }
+
+    .project-link {
+      color: var(--primary);
+      font-size: 14px;
+      font-weight: bold;
+    }
+
+    /* CERTIFICATIONS */
+    .cert-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .cert-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      padding: 23px;
+      border-radius: 12px;
+    }
+
+    .cert-card h3 {
+      font-size: 17px;
+      margin-bottom: 8px;
+    }
+
+    .cert-card p {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    /* CONTACT */
+    .contact-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 35px;
+    }
+
+    .contact-card p {
+      color: var(--muted);
+      margin-bottom: 16px;
+      overflow-wrap: anywhere;
+    }
+
+    .contact-card a {
+      color: var(--primary);
+    }
+
+    .contact-card a:hover {
+      text-decoration: underline;
+    }
+
+    footer {
+      text-align: center;
+      padding: 25px 0;
+      border-top: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    /* MOBILE */
+    @media (max-width: 800px) {
+      .hero-content {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        padding: 65px 0;
+      }
+
+      .hero-card {
+        max-width: 400px;
+      }
+
+      .cert-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .nav-content {
+        flex-wrap: wrap;
+        padding: 15px 0;
+      }
+
+      .nav-links {
+        flex-wrap: wrap;
+        gap: 12px;
+      }
+    }
+
+    @media (max-width: 550px) {
+      .projects-grid,
+      .cert-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .section-heading h2 {
+        font-size: 28px;
+      }
+
+      .hero h1 {
+        font-size: 37px;
+      }
+
+      .nav-links {
+        font-size: 12px;
+      }
+
+      .nav-links a {
+        font-size: 12px;
+      }
+
+      .about-card,
+      .contact-card {
+        padding: 22px;
+      }
+    }
+  </style>
 </head>
 
 <body>
 
-<!-- THEME BUTTON -->
-<button class="toggle-btn" onclick="toggleMode()">☀ Light</button>
+  <!-- NAVBAR -->
+  <nav>
+    <div class="container nav-content">
 
-<!-- ================= NAVBAR ================= -->
-<nav>
-  <a href="#home">Home</a>
-  <a href="#about">About</a>
-  <a href="#skills">Skills</a>
-  <a href="#certifications">Certifications</a>
-  <a href="#projects">Projects</a>
-  <a href="#contact">Contact</a>
-</nav>
 
-<!-- ================= PROFILE ================= -->
-<section id="home" class="profile">
-  <div class="profile-image">👩‍💻</div>
-  <h1>Hello, I'm Harshitha</h1>
-  <p><b>Full Stack Developer</b></p>
-  <p>Welcome to my portfolio</p>
-</section>
+      <div class="nav-links">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#certifications">Certifications</a>
+        <a href="#contact">Contact</a>
 
+        <button class="theme-btn" onclick="toggleMode()">
+          ☀ Light
+        </button>
+      </div>
+
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero" id="home">
+    <div class="container hero-content">
+
+      <div>
+        <span class="tag">Computer Science Engineering Student</span>
+
+        <h1>
+          Hi, I'm <span>Sriharshitha</span>
+        </h1>
+
+        <p>
+          Aspiring Full Stack Developer passionate about
+          building modern web applications, mobile apps,
+          and technology-driven solutions to real-world problems.
+        </p>
+
+        <div class="buttons">
+          <a href="#projects" class="btn btn-primary">
+            Explore My Projects
+          </a>
+
+          <a href="#contact" class="btn btn-outline">
+            Get In Touch
+          </a>
+        </div>
+      </div>
+
+      <div class="hero-card">
+        <div class="avatar">👩‍💻</div>
+
+        <h3>Sriharshitha Dhulipalla</h3>
+
+        <p>
+          Aspiring Full Stack Developer
+        </p>
+
+        <div class="hero-label">
+          BUILD · LEARN · INNOVATE
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+ 
 <!-- ================= ABOUT ================= -->
 <section id="about">
-  <h2>About Me</h2>
-  <p>
-I am Sriharshitha Dhulipalla, a passionate Full Stack Developer from Andhra Pradesh.
-I have completed certifications from L4G Solutions and Nypuniyam and have skills in Python,
-HTML, CSS, C Language, and UI/UX design. I enjoy building simple, clean, and
-user-friendly websites and I am continuously learning new technologies to improve
-myself as a developer.
-</p>
-</section>
+  <div class="container">
 
-<!-- ================= SKILLS ================= -->
-<section id="skills">
-  <h2>Skills</h2>
-  <div class="box-area">
-    <div class="box">🐍 Python</div>
-    <div class="box">🌐 HTML</div>
-    <div class="box">🎨 CSS</div>
-    <div class="box">💻 C Language</div>
-    <div class="box">🖌️ UI / UX</div>
+    <div class="section-heading">
+      <span>Get to know me</span>
+      <h2>About Me</h2>
+    </div>
+
+    <div class="about-card">
+      <p>
+        I am Sriharshitha Dhulipalla, a Computer Science
+        Engineering student and aspiring Full Stack
+        Developer passionate about building modern,
+        user-friendly web and mobile applications.
+        With skills in Python, JavaScript, MERN Stack,
+        MySQL, and Flutter, I enjoy turning ideas into
+        practical digital solutions while continuously
+        learning and exploring new technologies.
+      </p>
+    </div>
+
   </div>
 </section>
 
+  <!-- SKILLS -->
+  <section id="skills">
+    <div class="container">
+
+      <div class="section-heading">
+        <span>What I work with</span>
+        <h2>Technical Skills</h2>
+        <p>
+          Technologies and tools I use while learning
+          and developing applications.
+        </p>
+      </div>
+
+      <div class="skill-group">
+        <h3>Programming Languages</h3>
+
+        <div class="skills">
+          <div class="skill">Python</div>
+          <div class="skill">C</div>
+          <div class="skill">JavaScript</div>
+        </div>
+      </div>
+
+      <div class="skill-group">
+        <h3>Frontend Development</h3>
+
+        <div class="skills">
+          <div class="skill">HTML5</div>
+          <div class="skill">CSS3</div>
+          <div class="skill">React.js</div>
+          <div class="skill">Responsive Design</div>
+          <div class="skill">UI / UX Design</div>
+        </div>
+      </div>
+
+      <div class="skill-group">
+        <h3>Backend & Database</h3>
+
+        <div class="skills">
+          <div class="skill">Node.js</div>
+          <div class="skill">Express.js</div>
+          <div class="skill">MERN Stack</div>
+          <div class="skill">MongoDB</div>
+          <div class="skill">MySQL</div>
+          <div class="skill">SQL</div>
+        </div>
+      </div>
+
+      <div class="skill-group">
+        <h3>App Development & Tools</h3>
+
+        <div class="skills">
+          <div class="skill">Flutter</div>
+          <div class="skill">Git</div>
+          <div class="skill">GitHub</div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects">
+    <div class="container">
+
+      <div class="section-heading">
+        <span>What I've built</span>
+        <h2>Featured Projects</h2>
+        <p>
+          A selection of my web and application
+          development projects.
+        </p>
+      </div>
+
+      <div class="projects-grid">
+
+        <!-- SHOPMORE -->
+        <div class="project-card">
+          <span class="project-number">PROJECT 01</span>
+
+          <h3>Shopmore</h3>
+
+          <p>
+            An e-commerce web application featuring
+            user registration and login, product
+            browsing, wishlist, shopping cart,
+            and order management.
+          </p>
+
+          <div class="project-tags">
+            <span>HTML</span>
+            <span>CSS</span>
+            <span>JavaScript</span>
+            <span>Express.js</span>
+            <span>MySQL</span>
+          </div>
+
+          <a href="#contact" class="project-link">
+            Project Details →
+          </a>
+        </div>
+
+        <!-- VELORA -->
+        <div class="project-card">
+          <span class="project-number">PROJECT 02</span>
+
+          <h3>Velora</h3>
+
+          <p>
+            A social media platform with user profiles,
+            post sharing, following functionality,
+            and comments to support online interaction
+            and community building.
+          </p>
+
+          <div class="project-tags">
+            <span>Web Development</span>
+            <span>JavaScript</span>
+            <span>Social Media</span>
+          </div>
+
+          <a href="#contact" class="project-link">
+            Project Details →
+          </a>
+        </div>
+
+        <!-- URVIXA -->
+        <div class="project-card">
+          <span class="project-number">PROJECT 03</span>
+
+          <h3>URVIXA</h3>
+
+          <p>
+            A smart agriculture management system
+            focused on technology-driven farming
+            solutions to support farmers and improve
+            agricultural productivity.
+          </p>
+
+          <div class="project-tags">
+            <span>Smart Agriculture</span>
+            <span>Web Development</span>
+            <span>Technology</span>
+          </div>
+
+          <a href="#contact" class="project-link">
+            Project Details →
+          </a>
+        </div>
+
+        <!-- BIOLIFE -->
+        <div class="project-card">
+          <span class="project-number">PROJECT 04</span>
+
+          <h3>Biolife</h3>
+
+          <p>
+            A juice shop website designed to showcase
+            juice products through an attractive,
+            organized, and user-friendly interface.
+          </p>
+
+          <div class="project-tags">
+            <span>HTML</span>
+            <span>CSS</span>
+            <span>JavaScript</span>
+            <span>Web Design</span>
+          </div>
+
+          <a href="#contact" class="project-link">
+            Project Details →
+          </a>
+        </div>
+
+        <!-- SMARTLIB -->
+        <div class="project-card">
+          <span class="project-number">PROJECT 05</span>
+
+          <h3>SmartLib</h3>
+
+          <p>
+            A Flutter-based library application
+            designed to provide a convenient
+            interface for browsing and managing
+            library resources.
+          </p>
+
+          <div class="project-tags">
+            <span>Flutter</span>
+            <span>Dart</span>
+            <span>Mobile App</span>
+          </div>
+
+          <a href="#contact" class="project-link">
+            Project Details →
+          </a>
+        </div>
+
+        <!-- SKYSENSE -->
+        <div class="project-card">
+          <span class="project-number">PROJECT 06</span>
+
+          <h3>SkySense</h3>
+
+          <p>
+            A weather application that allows users
+            to select locations and view weather
+            information through a simple and
+            user-friendly interface.
+          </p>
+
+          <div class="project-tags">
+            <span>HTML</span>
+            <span>CSS</span>
+            <span>JavaScript</span>
+            <span>Weather App</span>
+          </div>
+
+          <a href="#contact" class="project-link">
+            Project Details →
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  
 <!-- ================= CERTIFICATIONS ================= -->
 <section id="certifications">
-  <h2>Certifications</h2>
-  <div class="box-area">
-    <div class="box">L4G Solutions</div>
-    <div class="box">Nypuniyam</div>
-    <div class="box">Joy of Computing Python</div>
-  </div>
-</section>
+  <div class="container">
 
-<!-- ================= PROJECTS ================= -->
-<section id="projects">
-  <h2>Projects</h2>
-  <div class="box-area">
-
-    <div class="box">
-      <h3>To-Do List</h3>
+    <div class="section-heading">
+      <span>Learning & Development</span>
+      <h2>Certifications & Internships</h2>
       <p>
-        A simple web application to add, delete, and manage daily tasks.
-        Helps users stay organized and improve productivity.
+        Courses, certifications, and practical
+        training that support my technical growth.
       </p>
     </div>
 
-    <div class="box">
-      <h3>Calculator</h3>
+    <div class="cert-grid">
+
+      <div class="cert-card">
+        <h3>Intel Unnati</h3>
+        <p>
+          Intel Unnati learning program and
+          technical training.
+        </p>
+      </div>
+
+      <div class="cert-card">
+        <h3>Full Stack Development</h3>
+        <p>
+          Internship Completion Certificate
+          demonstrating practical experience
+          in web application development.
+        </p>
+      </div>
+
+      <div class="cert-card">
+        <h3>L4G Solutions</h3>
+        <p>
+          Technical training and skill development.
+        </p>
+      </div>
+
+      <div class="cert-card">
+        <h3>Naipunyam</h3>
+        <p>
+          Training and professional skill development.
+        </p>
+      </div>
+
+      <div class="cert-card">
+        <h3>Joy of Computing Using Python</h3>
+        <p>
+          NPTEL course certification.
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="container">
+
+      <div class="section-heading">
+        <span>Let's connect</span>
+        <h2>Contact Me</h2>
+        <p>
+          Feel free to reach out for project
+          discussions, collaboration, or
+          professional opportunities.
+        </p>
+      </div>
+
+      <div class="contact-card">
+
+        <p>
+          <strong>Email:</strong>
+          <a href="mailto:sriharshithadhulipalla@gmail.com">
+            sriharshithadhulipalla@gmail.com
+          </a>
+        </p>
+
+        <p>
+          <strong>Phone:</strong>
+          <a href="tel:8008052097">
+            8008052097
+          </a>
+        </p>
+
+        <p>
+          <strong>GitHub:</strong>
+          <a
+            href="https://github.com/sriharshithadhulipalla"
+            target="_blank"
+            rel="noopener noreferrer">
+            View My GitHub →
+          </a>
+        </p>
+
+        <p>
+          <strong>LinkedIn:</strong>
+          <a
+            href="https://linkedin.com/in/sriharshitha-dhulipalla-90aa53348"
+            target="_blank"
+            rel="noopener noreferrer">
+            Connect on LinkedIn →
+          </a>
+        </p>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
       <p>
-        A basic calculator that performs arithmetic operations like addition,
-        subtraction, multiplication, and division.
+        © 2026 Sriharshitha Dhulipalla.
+        Designed and developed with care.
       </p>
     </div>
-    <div class="box">
-  <h3>Portfolio Website</h3>
-  <p>
-    A personal portfolio website to showcase my skills, projects,
-    certifications, and contact details using HTML, CSS, and JavaScript.
-  </p>
-</div>
-  </div>
-</section>
+  </footer>
 
-<!-- ================= CONTACT ================= -->
-<section id="contact">
-  <h2>Contact Me</h2>
+  <!-- JAVASCRIPT -->
+  <script>
+    function toggleMode() {
+      document.body.classList.toggle("light-mode");
 
-  <div class="contact-card">
-    <p>📧 Email: sriharshithadhulipalla@gmail.com</p>
-    <p>📞 Phone: 8008052097</p>
+      const btn = document.querySelector(".theme-btn");
 
-    <p>GitHub:
-      <a href="https://github.com/sriharshithadhulipalla" target="_blank">
-        github.com/sriharshithadhulipalla
-      </a>
-    </p>
-
-    <p>LinkedIn:
-      <a href="https://linkedin.com/in/sriharshitha-dhulipalla-90aa53348" target="_blank">
-        linkedin.com/in/sriharshitha-dhulipalla-90aa53348
-      </a>
-    </p>
-  </div>
-</section>
-
-<!-- ================= JAVASCRIPT ================= -->
-<script>
-function toggleMode(){
-  document.body.classList.toggle("light-mode");
-
-  let btn = document.querySelector(".toggle-btn");
-  if(document.body.classList.contains("light-mode")){
-    btn.innerHTML = "🌙 Dark";
-  }else{
-    btn.innerHTML = "☀ Light";
-  }
-}
-</script>
+      if (document.body.classList.contains("light-mode")) {
+        btn.innerHTML = "🌙 Dark";
+      } else {
+        btn.innerHTML = "☀ Light";
+      }
+    }
+  </script>
 
 </body>
 </html>
